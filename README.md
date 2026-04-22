@@ -15,6 +15,10 @@ The backend VM is only reachable by devices enrolled in the Tailnet via the subn
 
 ## Validation Output
 
+![Tailscale Status](./tailscale-status.png)
+
+![curl http://10.0.2.4](./validation-screenshot.png)
+
 All 4 checks pass end-to-end:
 - Tailscale running locally and enrolled in Tailnet
 - Subnet route 10.0.2.0/24 accepted in Tailnet admin console
