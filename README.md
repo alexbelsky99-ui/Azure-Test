@@ -114,7 +114,7 @@ The key proof: the backend VM has no Tailscale client, no public IP, and its NSG
 
 ## Reflection and AI Disclosure
 
-This project was built with assistance from Claude (Anthropic). AI was used for initial Terraform scaffolding, debugging the ip_forwarding configuration, and README drafting. All code was reviewed and validated through a complete live deployment on Azure. The architecture decisions, debugging approach, and tradeoff reasoning are my own. I believe being transparent about AI tool usage is important — particularly for a Solutions Engineer role where helping customers adopt new technology effectively is the core job.
+Used Claude (Anthropic) as a reference during development — primarily to validate my Terraform syntax and sanity-check my approach. All architecture decisions, debugging, and deployment were my own. All code was reviewed and validated through a complete live deployment. I believe being transparent about AI tool usage is important — particularly for a Solutions Engineer role where helping customers adopt new technology effectively is the core job.
 
 ---
 
