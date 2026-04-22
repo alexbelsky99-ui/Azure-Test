@@ -6,6 +6,8 @@ A fully automated, Infrastructure-as-Code deployment of a Tailscale subnet route
 
 ## Architecture
 
+![Architecture Diagram](./architecture.png)
+
 Azure VNet (10.0.0.0/16)
 +----------------------------------------------------------+
 |  subnet-public (10.0.1.0/24)                            |
