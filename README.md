@@ -8,40 +8,6 @@ A fully automated, Infrastructure-as-Code deployment of a Tailscale subnet route
 
 ![Architecture Diagram](./architecture.png)
 
-Azure VNet (10.0.0.0/16)
-+----------------------------------------------------------+
-|  subnet-public (10.0.1.0/24)                            |
-|  +------------------------+                              |
-|  |  vm-subnet-router      |                              |
-|  |  10.0.1.x              |                              |
-|  |  Public IP: assigned   |                              |
-|  |  Tailscale installed   |                              |
-|  |  ip_forwarding enabled |                              |
-|  |  Advertises 10.0.2.0/24|                              |
-|  +----------+-------------+                              |
-|             | routes traffic                             |
-|  subnet-private (10.0.2.0/24)                           |
-|  +----------+-------------+                              |
-|  |  vm-backend            |                              |
-|  |  10.0.2.4              |                              |
-|  |  nginx on port 80      |                              |
-|  |  No Tailscale client   |                              |
-|  |  No public IP          |                              |
-|  |  NSG denies all inbound|                              |
-|  +------------------------+                              |
-+----------------------------------------------------------+
-| WireGuard tunnel
-+------+----------+
-|  Tailscale      |
-|  Control Plane  |
-+------+----------+
-| Tailnet
-+------+----------+
-|  MacBook Pro    |
-|  Tailscale      |
-|  client         |
-+-----------------+
-Traffic: curl http://10.0.2.4 -> Tailnet -> vm-subnet-router -> nginx
 
 The backend VM is only reachable by devices enrolled in the Tailnet via the subnet router. It has no public IP and no internet-facing ports. The NSG explicitly denies all inbound traffic except from within the VNet.
 
