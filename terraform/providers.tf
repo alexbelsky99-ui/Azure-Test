@@ -22,3 +22,11 @@ provider "tailscale" {
   api_key = var.tailscale_api_key
   tailnet = var.tailscale_tailnet
 }
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-tailscale-demo"
+    storage_account_name = "tailscaledemostate"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
